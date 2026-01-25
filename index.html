@@ -432,7 +432,7 @@
                 const usernameInput = document.getElementById('waitlist-username');
                 if (dynamicUrl && usernameInput) {
                     usernameInput.value = '';
-                    dynamicUrl.textContent = 'mobile.7k.ag/you';
+                    dynamicUrl.innerHTML = 'mobile.7k.ag/<span class="text-[#5d60ef]">you</span>';
                 }
             } else {
                 overlay.classList.remove('overlay-active');
