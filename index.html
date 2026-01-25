@@ -85,7 +85,7 @@
                     <p class="leading-relaxed text-lg text-gray-500 dark:text-gray-400 tracking-tight max-w-sm">
                         The Non-Custodial Exchange Platform for Internet Capital Markets. Native DeFi OS on Sui.
                     </p>
-                    <button onclick="toggleModal(true)" class="bg-blue-600 text-white px-8 py-3 rounded-full text-base font-medium hover:bg-blue-700 transition-all shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] active:scale-95">
+                    <button onclick="toggleModal(true)" class="bg-[#5d60ef] text-white px-8 py-3 rounded-full text-base font-medium hover:bg-[#4a4ddf] transition-all shadow-[0_4px_14px_0_rgba(93,96,239,0.39)] active:scale-95">
                         Get Started
                     </button>
                 </div>
@@ -132,7 +132,7 @@
                 <!-- Floating Feature Badge 2 -->
                 <div class="absolute top-[62%] right-[24%] z-50 animate-bounce duration-[3000ms] delay-500 hidden md:block">
                     <div class="bg-white border-gray-50 border rounded-xl pt-2 pr-3 pb-2 pl-3 flex !scale-[1.75] origin-left transform-gpu gap-x-2 gap-y-2 items-center shadow-lg">
-                        <div class="text-blue-600 bg-blue-100 rounded-full pt-1.5 pr-1.5 pb-1.5 pl-1.5 flex">
+                        <div class="text-[#5d60ef] bg-[#5d60ef]/10 rounded-full pt-1.5 pr-1.5 pb-1.5 pl-1.5 flex">
                             <img src="https://cryptologos.cc/logos/sui-sui-logo.svg" alt="Sui" width="16" height="16" class="object-contain">
                         </div>
                         <div class="text-left">
@@ -158,7 +158,7 @@
                 <!-- Card 1 -->
                 <div class="bg-white rounded-[2rem] p-7 shadow-[0_2px_20px_-4px_rgba(0,0,0,0.04)] border border-gray-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1">
                     <div class="space-y-3">
-                        <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-[#5d60ef]/10 flex items-center justify-center text-[#5d60ef] group-hover:scale-110 transition-transform duration-300">
                             <iconify-icon icon="solar:cpu-linear" width="20" height="20" stroke-width="1.5"></iconify-icon>
                         </div>
                         <h3 class="text-lg font-semibold tracking-tight text-gray-900">Sui Tech Stack</h3>
@@ -286,7 +286,7 @@
         <!-- Final CTA -->
         <section class="text-center pt-2 space-y-6">
             <div class="space-y-2">
-                 <div class="inline-flex text-[10px] uppercase text-xs font-bold text-blue-600 tracking-normal bg-blue-50 border-blue-100 border rounded-full mb-2 pt-1 pr-3 pb-1 pl-3 items-center">
+                 <div class="inline-flex text-[10px] uppercase text-xs font-bold text-[#5d60ef] tracking-normal bg-[#5d60ef]/10 border-[#5d60ef]/20 border rounded-full mb-2 pt-1 pr-3 pb-1 pl-3 items-center">
                     Early Access
                 </div>
                 <h2 class="text-3xl font-semibold text-gray-900 tracking-tighter md:text-6xl">Be First in line!</h2>
@@ -363,7 +363,7 @@
                 </div>
 
                 <!-- Title -->
-                <h3 id="dynamic-url" class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-2 break-all max-w-full">mobile.7k.ag/you</h3>
+                <h3 id="dynamic-url" class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-2 break-all max-w-full">mobile.7k.ag/<span class="text-[#5d60ef]">you</span></h3>
                 
                 <!-- Subtitle -->
                 <p class="font-quicksand text-base text-gray-500 dark:text-gray-400 font-medium mb-8 leading-snug max-w-[300px]">
@@ -479,9 +479,9 @@
                     if (username) {
                         // Sanitize username for URL (remove spaces, special chars, keep only alphanumeric, hyphens, underscores)
                         const sanitizedUsername = username.toLowerCase().replace(/[^a-z0-9_-]/g, '');
-                        dynamicUrl.textContent = sanitizedUsername ? `mobile.7k.ag/${sanitizedUsername}` : 'mobile.7k.ag/you';
+                        dynamicUrl.innerHTML = sanitizedUsername ? `mobile.7k.ag/<span class="text-[#5d60ef]">${sanitizedUsername}</span>` : 'mobile.7k.ag/<span class="text-[#5d60ef]">you</span>';
                     } else {
-                        dynamicUrl.textContent = 'mobile.7k.ag/you';
+                        dynamicUrl.innerHTML = 'mobile.7k.ag/<span class="text-[#5d60ef]">you</span>';
                     }
                 });
             }
