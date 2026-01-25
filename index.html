@@ -21,6 +21,11 @@
   gtag('config', 'G-XPGXCFJ3N0');
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+  }
+</script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +34,7 @@
 
 <link id="all-fonts-link-font-inter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-inter">.font-inter { font-family: 'Inter', sans-serif !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style>
 </head>
-<body class="antialiased min-h-screen flex flex-col items-center selection:bg-blue-100 selection:text-blue-900 text-[#111] bg-[#F9FAFB]">
+<body class="antialiased min-h-screen flex flex-col items-center selection:bg-blue-100 selection:text-blue-900 text-[#111] dark:text-white bg-[#F9FAFB] dark:bg-[#0a0a0a] transition-colors duration-300">
 
 <!-- Background (component) added by Aura -->
 <div class="aura-background-component fixed top-0 w-full h-screen opacity-50 -z-10 mix-blend-normal" data-alpha-mask="50"><div class="aura-background-component top-0 w-full -z-10 absolute h-full">
@@ -46,10 +51,22 @@
             <img src="images/7k-mobile-logo-full.png" alt="7K Mobile" class="w-auto h-8 md:h-14 object-cover">
         </a>
         
-        <!-- Button -->
-        <button onclick="toggleModal(true)" class="transition-all duration-300 active:scale-95 hover:bg-black hover:text-white hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] text-sm font-semibold text-black bg-transparent border-black border-2 rounded-full pt-2 pr-5 pb-2 pl-5 shadow-none">
-            Join Waitlist
-        </button>
+        <!-- Buttons -->
+        <div class="flex items-center gap-3">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" onclick="toggleTheme()" class="p-2 rounded-full border-2 border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300" aria-label="Toggle theme">
+                <svg id="theme-icon-light" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                <svg id="theme-icon-dark" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            </button>
+            <!-- Join Waitlist -->
+            <button onclick="toggleModal(true)" class="transition-all duration-300 active:scale-95 hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] text-sm font-semibold text-black dark:text-white bg-transparent border-black dark:border-white border-2 rounded-full pt-2 pr-5 pb-2 pl-5 shadow-none">
+                Join Waitlist
+            </button>
+        </div>
     </nav>
 
     <!-- Main Container -->
@@ -60,12 +77,12 @@
             <div class="flex flex-col lg:flex-row lg:items-start gap-8 mb-16 gap-x-8 gap-y-8 justify-between">
                 <!-- Left: Headline -->
                 <div class="lg:w-[60%] space-y-4">
-                    <span class="text-[10px] uppercase text-sm font-semibold text-gray-600 tracking-normal bg-white border-gray-200 border rounded-full pt-0.5 pr-3 pb-0.5 pl-3 shadow-sm">Coming q1 2026 - Sui ecosystem</span><h1 class="leading-[1.1] bg-clip-text md:text-7xl text-5xl font-semibold text-transparent tracking-tighter bg-gradient-to-b from-[#010101] to-[#989898] scale-100">7K Mobile<br> <span class="xl:bg-clip-text xl:text-transparent md:text-5xl text-3xl">Universal Reach, with Sui Speed.</span></h1>
+                    <span class="text-[10px] uppercase text-sm font-semibold text-gray-600 dark:text-gray-400 tracking-normal bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 border rounded-full pt-0.5 pr-3 pb-0.5 pl-3 shadow-sm">Coming q1 2026 - Sui ecosystem</span><h1 class="leading-[1.1] bg-clip-text md:text-7xl text-5xl font-semibold text-transparent tracking-tighter bg-gradient-to-b from-[#010101] to-[#989898] dark:from-white dark:to-[#666666] scale-100">7K Mobile<br> <span class="xl:bg-clip-text xl:text-transparent md:text-5xl text-3xl">Universal Reach, with Sui Speed.</span></h1>
                 </div>
-                
+
                 <!-- Right: Subtext & CTA -->
                 <div class="lg:w-[35%] flex flex-col lg:items-end lg:text-right text-left py-10 space-y-5 items-center">
-                    <p class="leading-relaxed text-lg text-gray-500 tracking-tight max-w-sm">
+                    <p class="leading-relaxed text-lg text-gray-500 dark:text-gray-400 tracking-tight max-w-sm">
                         The Non-Custodial Exchange Platform for Internet Capital Markets. Native DeFi OS on Sui.
                     </p>
                     <button onclick="toggleModal(true)" class="bg-blue-600 text-white px-8 py-3 rounded-full text-base font-medium hover:bg-blue-700 transition-all shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] active:scale-95">
@@ -325,11 +342,11 @@
 
     <!-- Modal Implementation -->
     <!-- Overlay -->
-    <div id="modal-overlay" class="fixed inset-0 z-50 bg-[#F9FAFB]/80 backdrop-blur-md transition-all duration-300 overlay-enter" onclick="toggleModal(false)"></div>
+    <div id="modal-overlay" class="fixed inset-0 z-50 bg-[#F9FAFB]/80 dark:bg-black/80 backdrop-blur-md transition-all duration-300 overlay-enter" onclick="toggleModal(false)"></div>
     
     <!-- Modal Content -->
-    <div id="modal-content" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[51] w-full max-w-sm px-4 transition-all duration-300 modal-enter">
-        <div class="bg-white rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] p-8 md:p-10 flex flex-col items-center text-center relative overflow-hidden border border-gray-100 min-h-[420px] justify-center">
+    <div id="modal-content" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[51] w-full max-w-md px-4 transition-all duration-300 modal-enter">
+        <div class="bg-white dark:bg-gray-900 rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] p-8 md:p-10 flex flex-col items-center text-center relative overflow-hidden border border-gray-100 dark:border-gray-700 min-h-[420px] justify-center">
             
             <!-- Close Button -->
             <button onclick="toggleModal(false)" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100" aria-label="Close modal">
@@ -346,19 +363,19 @@
                 </div>
 
                 <!-- Title -->
-                <h3 id="dynamic-url" class="text-3xl font-bold tracking-tight text-gray-900 mb-2">mobile.7k.ag/you</h3>
+                <h3 id="dynamic-url" class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-2 break-all max-w-full">mobile.7k.ag/you</h3>
                 
                 <!-- Subtitle -->
-                <p class="font-quicksand text-base text-gray-500 font-medium mb-8 leading-snug max-w-[300px]">
-                    7K Mobile App is currently being developed and our Early Access will start soon, we'll send you a code for access the instant we're ready
+                <p class="font-quicksand text-base text-gray-500 dark:text-gray-400 font-medium mb-8 leading-snug max-w-[300px]">
+                    Early Access coming soon. Get your invite code first.
                 </p>
 
                 <!-- Inputs -->
                 <div class="w-full space-y-4">
-                    <input id="waitlist-email" type="email" placeholder="Enter your Email" class="w-full px-6 py-4 rounded-xl border-2 border-black text-gray-900 placeholder:text-gray-500 font-medium focus:outline-none focus:ring-0 transition-colors bg-white text-base" required>
+                    <input id="waitlist-email" type="email" placeholder="Enter your Email" class="w-full px-6 py-4 rounded-xl border-2 border-black dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-medium focus:outline-none focus:ring-0 transition-colors bg-white dark:bg-gray-800 text-base" required>
 
                     <div class="relative w-full">
-                        <input id="waitlist-username" type="text" placeholder="Your Username" class="w-full pl-6 pr-16 py-4 rounded-xl border-2 border-black text-gray-900 placeholder:text-gray-500 font-medium focus:outline-none focus:ring-0 transition-colors bg-white text-base" required>
+                        <input id="waitlist-username" type="text" placeholder="Your Username" class="w-full pl-6 pr-16 py-4 rounded-xl border-2 border-black dark:border-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-medium focus:outline-none focus:ring-0 transition-colors bg-white dark:bg-gray-800 text-base" required>
                         <button onclick="submitForm()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#111] text-white p-2 rounded-lg hover:bg-gray-800 transition-colors">
                             <iconify-icon icon="solar:arrow-right-linear" width="16" height="16" stroke-width="2.5"></iconify-icon>
                         </button>
@@ -372,23 +389,49 @@
                 <div class="mb-8">
                     <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0b2e12d6-456f-4c10-9db1-e243c0d82ac6_320w.png" alt="7K" class="h-10 w-auto object-contain">
                 </div>
-                
+
                 <!-- Title (Centered) -->
-                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 mb-4">Thank you!</h3>
-                
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">Thank you!</h3>
+
                 <!-- Subtext (Centered) -->
-                <p class="font-quicksand text-base text-gray-500 font-medium mb-10 leading-snug max-w-[280px] mx-auto">
+                <p class="font-quicksand text-base text-gray-500 dark:text-gray-400 font-medium mb-10 leading-snug max-w-[280px] mx-auto">
                     Your spot in the future of Sui is reserved. We'll send an invite to your inbox as soon as we're ready for you.
                 </p>
 
                 <!-- Close Button -->
-                <button onclick="toggleModal(false)" class="transition-all duration-300 active:scale-95 hover:bg-black hover:text-white hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] text-sm font-semibold text-black bg-white border-black border-2 rounded-full px-10 py-2.5 shadow-none">
+                <button onclick="toggleModal(false)" class="transition-all duration-300 active:scale-95 hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] text-sm font-semibold text-black dark:text-white bg-white dark:bg-gray-800 border-black dark:border-white border-2 rounded-full px-10 py-2.5 shadow-none">
                     Close
                 </button>
             </div>
 
         </div>
     </div>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
+
+            if (isDark) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize theme on page load
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
 
     <script>
         function toggleModal(show) {
